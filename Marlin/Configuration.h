@@ -499,9 +499,14 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  27.689
-    #define DEFAULT_Ki   1.634
-    #define DEFAULT_Kd 117.333
+    //#define DEFAULT_Kp  27.689
+    //#define DEFAULT_Ki   1.634
+    //#define DEFAULT_Kd 117.333
+    
+    // 18012020
+    #define DEFAULT_Kp 31.06
+    #define DEFAULT_Ki 3.52
+    #define DEFAULT_Kd 68.48
   #endif
 #endif // PIDTEMP
 
@@ -538,10 +543,14 @@
   //#define MIN_BED_POWER 0
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-  #define DEFAULT_bedKp 66.684
-  #define DEFAULT_bedKi 1.245
-  #define DEFAULT_bedKd 892.726
+  //#define DEFAULT_bedKp 66.684
+  //#define DEFAULT_bedKi 1.245
+  //#define DEFAULT_bedKd 892.726
 
+  //18012020
+  #define DEFAULT_bedKp 150.86
+  #define DEFAULT_bedKi 27.68
+  #define DEFAULT_bedKd 548.23
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
 
@@ -739,7 +748,8 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 136 }
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 136 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 81.09, 80.2, 400, 136 } // Calibrated 17/01/2020
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -984,7 +994,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -44, -8, -2.77 }
+#define NOZZLE_TO_PROBE_OFFSET { -44, -8, -2.72 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1279,7 +1289,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 9
+  #define GRID_MAX_POINTS_X 15
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -1391,8 +1401,8 @@
 #endif
 
 // Homing speeds (mm/min)
-#define HOMING_FEEDRATE_XY (50*60)
-#define HOMING_FEEDRATE_Z  (4*60)
+#define HOMING_FEEDRATE_XY (60*60)
+#define HOMING_FEEDRATE_Z  (5*60)
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
