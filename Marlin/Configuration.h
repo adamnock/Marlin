@@ -496,10 +496,14 @@
     //#define DEFAULT_Ki   1.634
     //#define DEFAULT_Kd 117.333
     
-    // 18012020
-    #define DEFAULT_Kp 31.06
-    #define DEFAULT_Ki 3.52
-    #define DEFAULT_Kd 68.48
+    // 18012021
+    //#define DEFAULT_Kp 31.06
+    //#define DEFAULT_Ki 3.52
+    //#define DEFAULT_Kd 68.48
+    //02032021
+    #define DEFAULT_Kp 30.74
+    #define DEFAULT_Ki 3.39
+    #define DEFAULT_Kd 69.61
   #endif
 #endif // PIDTEMP
 
@@ -540,10 +544,16 @@
   //#define DEFAULT_bedKi 1.245
   //#define DEFAULT_bedKd 892.726
 
-  //18012020
-  #define DEFAULT_bedKp 150.86
-  #define DEFAULT_bedKi 27.68
-  #define DEFAULT_bedKd 548.23
+  //18012021
+  //#define DEFAULT_bedKp 150.86
+  //#define DEFAULT_bedKi 27.68
+  //#define DEFAULT_bedKd 548.23
+  //02032021
+  #define DEFAULT_bedKp 67.05
+  #define DEFAULT_bedKi 13.07
+  #define DEFAULT_bedKd 229.33
+
+
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
 
@@ -994,7 +1004,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -44, -8, -2.8 }
+#define NOZZLE_TO_PROBE_OFFSET { -44, -8, -2.78 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1004,7 +1014,7 @@
 #define XY_PROBE_SPEED (133*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_SPEED_FAST (4*60)
+#define Z_PROBE_SPEED_FAST (6*60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
@@ -1411,7 +1421,7 @@
   //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
   #define MESH_INSET 1              // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 8      // Don't use more than 15 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 11      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
@@ -1515,7 +1525,7 @@
 #endif
 
 // Homing speeds (mm/min)
-#define HOMING_FEEDRATE_MM_M { (70*60), (70*60), (4*60) }
+#define HOMING_FEEDRATE_MM_M { (70*60), (70*60), (6*60) }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -1626,7 +1636,7 @@
 // Preheat Constants - Up to 5 are supported without changes
 //
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 180
+#define PREHEAT_1_TEMP_HOTEND 200
 #define PREHEAT_1_TEMP_BED     70
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
